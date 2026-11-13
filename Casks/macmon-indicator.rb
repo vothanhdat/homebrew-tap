@@ -1,6 +1,6 @@
 cask "macmon-indicator" do
-  version "0.1.7"
-  sha256 "a96f92c92095f3292e1277b9d34279a267217620777e2e199d960ca0e4a6eb62"
+  version "0.1.8"
+  sha256 "868808af597e29edb7d30c999ece099c101017a523948fec09967c4007c1f1a8"
 
   url "https://github.com/vothanhdat/macmon-menubar/releases/download/v#{version}/MacMon-Indicator-#{version}.zip"
   name "MacMon Indicator"
@@ -16,6 +16,8 @@ cask "macmon-indicator" do
   depends_on macos: :ventura
 
   app "MacMon Indicator.app"
+  # The terminal view (also over SSH): `macmon-indicator`.
+  binary "#{appdir}/MacMon Indicator.app/Contents/MacOS/macmon-indicator"
 
   # The app is ad-hoc signed, not notarized, so macOS would refuse to open a downloaded copy.
   postflight_steps do
