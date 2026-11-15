@@ -1,6 +1,6 @@
 cask "macmon-indicator" do
-  version "0.1.8"
-  sha256 "868808af597e29edb7d30c999ece099c101017a523948fec09967c4007c1f1a8"
+  version "0.1.9"
+  sha256 "05b6fadde7a95bca726d58b577ab82b6e9271fb0d07135882819bcd6a6ca3a85"
 
   url "https://github.com/vothanhdat/macmon-menubar/releases/download/v#{version}/MacMon-Indicator-#{version}.zip"
   name "MacMon Indicator"
