@@ -1,6 +1,6 @@
 cask "visual-audio" do
-  version "0.2.0"
-  sha256 "b1fb88203ad8b53f3fa992ce68e304e77c1d4fc388a0d63999e900ee856fafeb"
+  version "0.3.0"
+  sha256 "1951aa44a3c8ba968687c7e7c6147a6b8a72055b93379fa52d0e4d70bdfef9d3"
 
   url "https://github.com/vothanhdat/mac-audio-visualize/releases/download/v#{version}/VisualAudio-#{version}.zip"
   name "VisualAudio"
