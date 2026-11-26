@@ -18,6 +18,13 @@ cask "iqualize" do
   app "iQualize.app"
   binary "#{appdir}/iQualize.app/Contents/Resources/bin/iqualize"
 
+  # The app is ad-hoc signed, not notarized, so macOS would refuse to open a downloaded copy.
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args:           ["-dr", "com.apple.quarantine", "{{appdir}}/iQualize.app"],
+        writable_paths: ["{{appdir}}/iQualize.app"]
+  end
+
   uninstall quit: "codes.darius.iqualize"
 
   zap trash: [
@@ -27,14 +34,10 @@ cask "iqualize" do
     "~/Library/Saved Application State/codes.darius.iqualize.savedState",
   ]
 
-  # Ad-hoc signed, not notarized. The quarantine flag is left for the user to clear (see caveats).
   caveats <<~EOS
-    iQualize needs macOS 14.2 or later.
-
-    iQualize is ad-hoc signed and not notarized by Apple, so macOS may say it is
-    damaged or can't be checked for malware the first time you open it. If it
-    does, clear the quarantine flag that macOS puts on downloads:
-
-      xattr -dr com.apple.quarantine /Applications/iQualize.app
+    iQualize needs macOS 14.2 or later. Open iQualize and allow System Audio
+    Recording when macOS asks; Room Correction also asks for the microphone the
+    first time you measure. Because the app is ad-hoc signed, macOS may ask again
+    after an update.
   EOS
 end

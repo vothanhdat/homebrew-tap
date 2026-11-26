@@ -1,8 +1,7 @@
 # vothanhdat/tap
 
-Homebrew tap for Mac apps. All three are ad-hoc signed, not notarized. The MacMon Indicator and
-VisualAudio casks clear the quarantine flag after installing (otherwise macOS would refuse to open
-them); for iQualize you clear it yourself with one command, shown below.
+Homebrew tap for Mac apps. All three are ad-hoc signed, not notarized, so each cask clears the
+quarantine flag after installing (otherwise macOS would refuse to open them).
 
 ## MacMon Indicator
 
@@ -42,7 +41,6 @@ EQ with microphone room correction. Universal (Apple Silicon and Intel); require
 
 ```bash
 brew install --cask vothanhdat/tap/iqualize
-xattr -dr com.apple.quarantine /Applications/iQualize.app
 ```
 
 Then open **iQualize** and allow **System Audio Recording** when macOS asks. Room Correction also
